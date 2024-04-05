@@ -1,14 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-const EshopItems = () => {
-  const [eshopItems, setEshopItems] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:8080/eshop/items')
-        .then(res => res.json())
-        .then(data => setEshopItems(data))
-  }, []);
-
+const EshopItems = ({ items }) => {
   return (
     <div>
       <h1 className='text-center'>EshopItems</h1>
@@ -22,10 +14,9 @@ const EshopItems = () => {
               <th>Price</th>
             </tr>
           </thead>
-
           <tbody>
             {
-              eshopItems.map(eshopItem => (
+              items.map(eshopItem => (
                 <tr key={eshopItem.id}>
                   <td>{eshopItem.productCode}</td>
                   <td>{eshopItem.productName}</td>
