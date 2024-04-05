@@ -1,29 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import EshopItems from './components/EshopItems';
+import useFetch from './useFetch';
 
 const Home = () => {
-  const [eshopItems, setEshopItems] = useState([]);
-  const [isPending, setIsPending] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetch('http://localhost:8080/eshop/items')
-      .then(res => {
-        if(!res.ok) {
-          throw Error('Could not fetch the data for that resource');
-        }
-        return res.json()
-      })
-      .then(data => {
-        setEshopItems(data);
-        setIsPending(false);
-        setError(null);
-      })
-      .catch(err => {
-        setIsPending(false);
-        setError(err.message);
-      })
-  }, []);
+  const {data: eshopItems, isPending, error} = useFetch('http://localhost:8080/eshop/items');
 
   return (
     <div className='Home'>
