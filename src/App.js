@@ -1,9 +1,11 @@
-import './App.css';
+import Navbar from './components/Navbar';
+import Home from './Home';
 
 function App() {
   return (
-    <div className="App">
-This is eshop frontend
+    <div className="container">
+      <Navbar />
+      <Home />
     </div>
   );
 }

@@ -1,0 +1,193 @@
+{
+    "eshop-items" : [
+        {
+            "id": "e485772b-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Google Pixel 6",
+            "productCode": 7887,
+            "price": 599.99,
+            "volume": 3
+        },
+        {
+            "id": "e4857815-c8f1-11ee-b215-309c23b0824d",
+            "productName": "MacBook Air",
+            "productCode": 7614,
+            "price": 999.99,
+            "volume": 0
+        },
+        {
+            "id": "e48578f4-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Sony PlayStation 5",
+            "productCode": 1188,
+            "price": 499.99,
+            "volume": 1
+        },
+        {
+            "id": "e48579ed-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Xbox Series X",
+            "productCode": 5559,
+            "price": 499.99,
+            "volume": 1
+        },
+        {
+            "id": "e4857aa9-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Nintendo Switch",
+            "productCode": 7386,
+            "price": 299.99,
+            "volume": 0
+        },
+        {
+            "id": "e4857bf8-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Dell XPS 13",
+            "productCode": 4984,
+            "price": 899.99,
+            "volume": 2
+        },
+        {
+            "id": "e4857d49-c8f1-11ee-b215-309c23b0824d",
+            "productName": "HP Spectre x360",
+            "productCode": 1185,
+            "price": 1099.99,
+            "volume": 4
+        },
+        {
+            "id": "e4857e8c-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Bose QuietComfort 35 II",
+            "productCode": 7424,
+            "price": 299.99,
+            "volume": 3
+        },
+        {
+            "id": "e4857fb6-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Sony WH-1000XM4",
+            "productCode": 4852,
+            "price": 349.99,
+            "volume": 4
+        },
+        {
+            "id": "e48580f0-c8f1-11ee-b215-309c23b0824d",
+            "productName": "JBL Flip 5",
+            "productCode": 4752,
+            "price": 119.99,
+            "volume": 1
+        },
+        {
+            "id": "e485821b-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Apple Watch Series 7",
+            "productCode": 9834,
+            "price": 399.99,
+            "volume": 1
+        },
+        {
+            "id": "e485835b-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Fitbit Charge 5",
+            "productCode": 3023,
+            "price": 179.99,
+            "volume": 2
+        },
+        {
+            "id": "e4858485-c8f1-11ee-b215-309c23b0824d",
+            "productName": "GoPro HERO10 Black",
+            "productCode": 9241,
+            "price": 399.99,
+            "volume": 5
+        },
+        {
+            "id": "e48586cc-c8f1-11ee-b215-309c23b0824d",
+            "productName": "DJI Mavic Air 2",
+            "productCode": 3976,
+            "price": 799.99,
+            "volume": 4
+        },
+        {
+            "id": "e4858808-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Kindle Paperwhite",
+            "productCode": 8974,
+            "price": 129.99,
+            "volume": 5
+        },
+        {
+            "id": "e485892f-c8f1-11ee-b215-309c23b0824d",
+            "productName": "iPad Pro",
+            "productCode": 4036,
+            "price": 799.99,
+            "volume": 1
+        },
+        {
+            "id": "e4858a52-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Samsung Galaxy Tab S7",
+            "productCode": 3131,
+            "price": 649.99,
+            "volume": 7
+        },
+        {
+            "id": "e4858b62-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Microsoft Surface Pro 7",
+            "productCode": 7991,
+            "price": 749.99,
+            "volume": 3
+        },
+        {
+            "id": "e4858ca2-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Asus ROG Phone 5",
+            "productCode": 4792,
+            "price": 699.99,
+            "volume": 1
+        },
+        {
+            "id": "e4858ddf-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Alienware m15 R4",
+            "productCode": 1663,
+            "price": 1999.99,
+            "volume": 8
+        },
+        {
+            "id": "e4858f1c-c8f1-11ee-b215-309c23b0824d",
+            "productName": "LG OLED55C1",
+            "productCode": 9935,
+            "price": 1499.99,
+            "volume": 7
+        },
+        {
+            "id": "e485909a-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Sonos One",
+            "productCode": 2024,
+            "price": 199.99,
+            "volume": 8
+        },
+        {
+            "id": "e48591d9-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Canon EOS R5",
+            "productCode": 8137,
+            "price": 3899.99,
+            "volume": 6
+        },
+        {
+            "id": "e4859320-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Nikon Z6 II",
+            "productCode": 1509,
+            "price": 1999.99,
+            "volume": 5
+        },
+        {
+            "id": "e4859436-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Garmin Fenix 6",
+            "productCode": 1917,
+            "price": 599.99,
+            "volume": 3
+        },
+        {
+            "id": "e4859552-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Roku Streaming Stick+",
+            "productCode": 7278,
+            "price": 49.99,
+            "volume": 4
+        },
+        {
+            "id": "e4859653-c8f1-11ee-b215-309c23b0824d",
+            "productName": "Philips Hue White and Color Ambiance",
+            "productCode": 7533,
+            "price": 99.99,
+            "volume": 3
+        }
+    ]
+}
