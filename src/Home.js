@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <div className='Home'>
       {isPending && <div>Loading...</div>}
-      {!isPending && <EshopItems items={eshopItems} />}
+      {!isPending && <EshopItems eshopItems={eshopItems} />}
     </div>
   );
 }

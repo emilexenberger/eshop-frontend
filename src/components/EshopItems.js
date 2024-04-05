@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EshopItems = ({ items }) => {
+const EshopItems = ({ eshopItems }) => {
   return (
     <div>
       <h1 className='text-center'>EshopItems</h1>
@@ -16,7 +16,7 @@ const EshopItems = ({ items }) => {
           </thead>
           <tbody>
             {
-              items.map(eshopItem => (
+              eshopItems.map(eshopItem => (
                 <tr key={eshopItem.id}>
                   <td>{eshopItem.productCode}</td>
                   <td>{eshopItem.productName}</td>
