@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import EshopItems from './components/EshopItems';
 import useFetch from './useFetch';
 
