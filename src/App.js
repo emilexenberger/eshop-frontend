@@ -1,6 +1,6 @@
 import Navbar from './components/Navbar';
-import CreateItem from './CreateItem';
-import Home from './Home';
+import CreateItem from './pages/Item/CreateItem';
+import Home from './pages/Home/Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {

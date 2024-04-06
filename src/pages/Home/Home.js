@@ -1,5 +1,5 @@
-import EshopItems from './components/EshopItems';
-import useFetch from './useFetch';
+import EshopItems from '../../components/EshopItems';
+import useFetch from '../../hooks/useFetch';
 
 const Home = () => {
   const {data: eshopItems, isPending, error} = useFetch('http://localhost:8080/eshop/items');
