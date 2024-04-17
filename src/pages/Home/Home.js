@@ -25,7 +25,7 @@ const Home = () => {
       {/* Greetings */}
       {userData.userLogged ? (
         <div>
-          <h1>Welcome, {userData.appUser.username}!</h1>
+          <h1>Welcome!</h1>
           {userData.roleAdmin && <p>You have admin rights.</p>}
         </div>
       ) : (
