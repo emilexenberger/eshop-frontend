@@ -1,45 +1,48 @@
-import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import UserService from '../../components/service/UserService';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
-  const [userData, setUserData] = useState({
-    userLogged: false,
-    roleAdmin: false,
-    appUser: null,
-  });
+  const isAuthenticated = UserService.isAuthenticated();
+  const isAdmin = UserService.isAdmin();
+
+  const [profileInfo, setProfileInfo] = useState({});
 
   useEffect(() => {
-    document.title = "Home";
+    if (isAuthenticated) {
+      fetchProfileInfo();
+    }
+  }, [isAuthenticated]);
 
-    fetch('http://localhost:8080/')
-      .then(response => response.json())
-      .then(data => setUserData({
-        userLogged: data.userLogged,
-        roleAdmin: data.roleAdmin || false,
-        appUser: data.appUser || null,
-      }));
-  }, []);
+  const fetchProfileInfo = async () => {
+      try {
+          const token = localStorage.getItem('token');
+          const response = await UserService.getYourProfile(token);
+          setProfileInfo(response.ourUsers);
+      } catch (error) {
+          console.error('Error fetching profile information:', error);
+      }
+  };
 
   return (
     <div>
       {/* Greetings */}
-      {userData.userLogged ? (
+      {isAuthenticated ? (
         <div>
-          <h1>Welcome!</h1>
-          {userData.roleAdmin && <p>You have admin rights.</p>}
+          <h1>Welcome, {profileInfo.name}!</h1>
+          {isAdmin && <p>You have admin rights.</p>}
         </div>
       ) : (
         <h1>Welcome!</h1>
       )}
 
       {/* Buttons */}
-      {userData.userLogged ? (
+      {isAuthenticated ? (
         <div>
-          {userData.roleAdmin && <Link to="/item/admin" type="button" className="btn btn-primary btn-sm mb-1 mx-1">Admin - Edit database</Link>}
+          {isAdmin && <Link to="/item/admin" type="button" className="btn btn-primary btn-sm mb-1 mx-1">Admin - Edit database</Link>}
           <Link to="/eshop" type="button" className="btn btn-primary btn-sm mb-1 mx-1">Eshop</Link>
           <Link to="/order" type="button" className="btn btn-primary btn-sm mb-1 mx-1">My orders</Link>
-          <Link to="/user" type="button" className="btn btn-primary btn-sm mb-1 mx-1">Profile</Link>
-          <Link to="/user/logout" type="button" className="btn btn-primary btn-sm mb-1 mx-1">Log out</Link>
+          <Link to="/user/profile" type="button" className="btn btn-primary btn-sm mb-1 mx-1">Profile</Link>
         </div>
       ) : (
         <div>
