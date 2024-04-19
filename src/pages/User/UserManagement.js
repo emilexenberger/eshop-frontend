@@ -14,7 +14,6 @@ function UserManagement() {
     try {
         const token = localStorage.getItem('token'); // Retrieve the token from localStorage
         const response = await UserService.getAllUsers(token);
-        console.log(response);
         setUsers(response.ourUsersList); // Assuming the list of users is under the key 'ourUsersList'
     } catch (error) {
         console.error('Error fetching users:', error);
@@ -39,10 +38,10 @@ function UserManagement() {
   };
 
   return (
-    <div className="user-management-container">
+    <div className='col-md-6'>
       <h2>Users Management Page</h2>
-      <button className='reg-button'> <Link to="/register">Add User</Link></button>
-      <table>
+      <Link to="/user/create" type="button" className="btn btn-primary btn-sm mb-1 mx-1">Add User</Link>
+      <table className="table col-3 table-borderless">
         <thead>
           <tr>
             <th>ID</th>
@@ -58,11 +57,8 @@ function UserManagement() {
               <td>{user.name}</td>
               <td>{user.surname}</td>
               <td>
-                <button className='delete-button' onClick={() => deleteUser(user.id)}>Delete</button>
-                <button><Link to={`/user/update/${user.id}`}>
-                  Update
-                </Link>
-                </button>
+                <button className="btn btn-primary btn-sm mb-1 mx-1" onClick={() => deleteUser(user.id)}>Delete</button>
+                <Link to={`/user/update/${user.id}`} type="button" className="btn btn-primary btn-sm mb-1 mx-1">Update</Link>
               </td>
             </tr>
           ))}

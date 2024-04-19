@@ -1,6 +1,6 @@
 import Home from './pages/Home/Home';
 import Eshop from './pages/Eshop/Eshop';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import UserLogin from './pages/User/UserLogin';
 import MyOrders from './pages/Order/MyOrders';
 import ItemAdmin from './pages/AdminDatabase/ItemAdmin';
@@ -14,32 +14,33 @@ import UserUpdate from './pages/User/UserUpdate';
 
 function App() {
   return (
-      <Router>
+      <BrowserRouter>
         <div className='container my-3'>
         <div>Website - Emil Exenberger</div>
         <Navbar />
 
-        <Switch>
-          <Route exact path="/"><Home /></Route>
-          <Route exact path="/eshop"><Eshop /></Route>
-          <Route exact path="/user/profile"><UserProfile /></Route>
-          <Route exact path="/user/login"><UserLogin /></Route>
-          <Route exact path="/user/create"><UserCreate /></Route>
-          <Route exact path="/order"><MyOrders /></Route>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/eshop" element={<Eshop />} />
+          <Route exact path="/user/profile" element={<UserProfile />} />
+          <Route exact path="/user/login" element={<UserLogin />} />
+          <Route exact path="/user/create" element={<UserCreate />} />
+          <Route exact path="/order" element={<MyOrders />} />
 
+{/* TODO: Pozri sa, ci to nevies urobit elegantnejsie, aby nezobrazovalo warning */}
           {/* Check if user is authenticated and admin before rendering admin-only routes */}
           {UserService.isAdmin() && (
             <>
-              <Route exact path="/item/admin"><ItemAdmin /></Route>
-              <Route exact path="/user/management"><UserManagement /></Route>
-              <Route exact path="/user/update/:userId"><UserUpdate /></Route>
+              <Route exact path="/item/admin" element={<ItemAdmin />} />
+              <Route exact path="/user/management" element={<UserManagement />} />
+              <Route exact path="/user/update/:userId" element={<UserUpdate />} />
             </>
           )}
-        </Switch>
+        </Routes>
 
         <Footer />
         </div>
-      </Router>
+      </BrowserRouter>
   );
 }
 

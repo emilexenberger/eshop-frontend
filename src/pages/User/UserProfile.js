@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import UserService from '../../components/service/UserService';
-import { Link } from 'react-router-dom/cjs/react-router-dom';
+import { Link } from 'react-router-dom';
 
 const UserProfile = () => {
   const [profileInfo, setProfileInfo] = useState({});
@@ -47,7 +47,7 @@ const UserProfile = () => {
           </table>
 
           {profileInfo.role === "ADMIN" && (
-              <button><Link to={`/user/update/${profileInfo.id}`}>Update This Profile</Link></button>
+              <Link to={`/user/update/${profileInfo.id}`} type="button" className="btn btn-primary btn-sm mb-1 mx-1">Update This Profile</Link>
           )}
       </div>      
   );

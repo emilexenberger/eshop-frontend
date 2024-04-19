@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import UserService from '../../components/service/UserService';
 
 function UserCreate() {
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const [confirmPassword, setConfirmPassword] = useState('');
     const [formData, setFormData] = useState({
@@ -21,9 +21,6 @@ function UserCreate() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            setFormData({ ...formData, 'role': 'USER' });
-            console.log(formData)
-
             // Call the register method from UserService
             await UserService.register(formData);
 
@@ -37,7 +34,7 @@ function UserCreate() {
             });
             setConfirmPassword('')
             alert('User registered successfully');
-            history.push('/');
+            navigate('/');
 
         } catch (error) {
             console.error('Error registering user:', error);

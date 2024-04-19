@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import UserService from '../../components/service/UserService';
 
 const UserLogin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('')
-    const history = useHistory();
+    const navigate = useNavigate();
 
     useEffect(() => {
         document.title = "Login"
@@ -18,11 +18,10 @@ const UserLogin = () => {
     
         try {
             const userData = await UserService.login(username, password)
-            console.log(userData)
             if (userData.token) {
                 localStorage.setItem('token', userData.token)
                 localStorage.setItem('role', userData.role)
-                history.push('/')
+                navigate('/')
             }else{
                 setError(userData.message)
             }

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import UserService from '../../components/service/UserService';
 
 function UserUpdate() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { userId } = useParams();
-
 
   const [userData, setUserData] = useState({
     name: '',
@@ -42,9 +41,8 @@ function UserUpdate() {
       const confirmUpdate = window.confirm('Are you sure you want to update this user?');
       if (confirmUpdate) {
         const token = localStorage.getItem('token');
-        const res = await UserService.updateUser(userId, userData, token);
-        console.log(res)
-        history.push("/user/management")
+        await UserService.updateUser(userId, userData, token);
+        navigate("/user/management")
       }
 
     } catch (error) {
@@ -59,12 +57,14 @@ function UserUpdate() {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Name:</label>
-          <input type="text" name="name" value={userData.name} onChange={handleInputChange} clasName="form-control col-4" />
+          <input type="text" name="name" value={userData.name} onChange={handleInputChange} className="form-control col-4" />
+          <br />
         </div>
 
         <div className="form-group">
           <label>Surname:</label>
-          <input type="email" name="email" value={userData.surname} onChange={handleInputChange} clasName="form-control col-4" />
+          <input type="text" name="surname" value={userData.surname} onChange={handleInputChange} className="form-control col-4" />
+          <br />
         </div>
 
         <button type="submit" className="btn btn-primary btn-sm mb-1">Update</button>
