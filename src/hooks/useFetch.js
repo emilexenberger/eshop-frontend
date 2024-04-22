@@ -1,37 +1,48 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 const useFetch = (url) => {
     const [data, setData] = useState([]);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
+    const [triggerFetch, setTriggerFetch] = useState(0);
 
-    useEffect(() => {
-        const abortCont = new AbortController();
+    const fetchData = useCallback(() => {
+        const token = localStorage.getItem('token');
+        setIsPending(true);
+        setError(null);
 
-        fetch(url, { signal: abortCont.signal })
-          .then(res => {
-            if(!res.ok) {
-              throw Error('Could not fetch the data for that resource');
+        fetch(url, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+        })
+        .then(res => {
+            if (!res.ok) {
+                throw new Error('Could not fetch the data for that resource');
             }
-            return res.json()
-          })
-          .then(data => {
+            return res.json();
+        })
+        .then(data => {
             setData(data);
             setIsPending(false);
-            setError(null);
-          })
-          .catch(err => {
-            if (err.name === 'AbortError') {
-                // console.log('fetch aborted');
-            } else {
-                setIsPending(false);
+        })
+        .catch(err => {
+            if (err.name !== 'AbortError') {
                 setError(err.message);
+                setIsPending(false);
             }
-          })
-        return () => abortCont.abort();
+        });
     }, [url]);
 
-    return {data, isPending, error}
-}
+    useEffect(() => {
+        fetchData();
+    }, [fetchData, triggerFetch]);
 
-export default useFetch
+    const refetch = () => {
+        setTriggerFetch(triggerFetch + 1);
+    };
+
+    return { data, isPending, error, refetch };
+};
+
+export default useFetch;

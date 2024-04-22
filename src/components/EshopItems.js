@@ -1,19 +1,19 @@
 import React from 'react';
 
-const EshopItems = ({ eshopItems }) => {
+const EshopItems = ({ eshopItems, handleAddToCart }) => {
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   fetch('http://localhost:8080/', {
-  //     method: 'POST',
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(eshopItems)
-  //   })
-  // }
+  const handleSubmit = (e, eshopItem) => {
+    e.preventDefault();
+    const itemAddedToCart = {
+      itemId: eshopItem.id,
+      volume: e.target.elements.volumeSelected.value,
+    };
+    handleAddToCart(itemAddedToCart);
+  };
 
   return (
     <div>
-      <h1 className='text-center'>EshopItems</h1>
+      <h1 className='text-center'>Eshop Items</h1>
       <div className='row'>
         <table className="table table-striped table-bordered">
           <thead>
@@ -22,7 +22,7 @@ const EshopItems = ({ eshopItems }) => {
               <th>Product name</th>
               <th>Volume</th>
               <th>Price</th>
-              {/* <th>Actions</th> */}
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -30,16 +30,28 @@ const EshopItems = ({ eshopItems }) => {
               eshopItems.map(eshopItem => (
                 eshopItem.volume > 0 &&
                 <tr key={eshopItem.id}>
-                  <td>{eshopItem.productCode}</td>
-                  <td>{eshopItem.productName}</td>
-                  <td>{eshopItem.volume}</td>
-                  <td>{eshopItem.price}</td>
-                  {/* <td class="align-middle">
-                    <form onSubmit={handleSubmit} class="d-flex">
-                      <input type="number" min="1" step="1" value="1" max={eshopItem.volume} class="form-control col-3 mr-3"/>
-                      <button type="submit" class="btn btn-primary btn-sm">Add to cart</button>
-                    </form>
-                  </td> */}
+                  <td className="align-middle">{eshopItem.productCode}</td>
+                  <td className="align-middle">{eshopItem.productName}</td>
+                  <td className="align-middle">{eshopItem.volume}</td>
+                  <td className="align-middle">{eshopItem.price}</td>
+                  <td className="align-middle">
+                  <form onSubmit={(e) => handleSubmit(e, eshopItem)} className="d-flex align-items-center">
+                    <input 
+                      name="volumeSelected" 
+                      type="number" 
+                      min="1" 
+                      step="1" 
+                      defaultValue="1" 
+                      max={eshopItem.volume} 
+                      className="form-control w-25 me-2"
+                    />
+                    <div className="input-group-append">
+                      <button type="submit" className="btn btn-primary btn-s">
+                        Add to cart
+                      </button>
+                    </div>
+                  </form>
+                  </td>
                 </tr>
               ))
             }
@@ -48,6 +60,6 @@ const EshopItems = ({ eshopItems }) => {
       </div>
     </div>
   );
-}
+};
 
 export default EshopItems;
