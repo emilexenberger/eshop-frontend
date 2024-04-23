@@ -19,7 +19,7 @@ function UserUpdate() {
     try {
       const token = localStorage.getItem('token');
       const response = await UserService.getUserById(userId, token);
-      const { name, surname } = response.ourUsers;
+      const { name, surname } = response.appUser;
       setUserData({ name, surname });
     } catch (error) {
       console.error('Error fetching user data:', error);
