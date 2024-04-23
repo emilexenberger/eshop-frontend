@@ -23,16 +23,19 @@ function App() {
 
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/eshop" element={<Eshop />} />
-          <Route exact path="/user/profile" element={<UserProfile />} />
           <Route exact path="/user/login" element={<UserLogin />} />
           <Route exact path="/user/create" element={<UserCreate />} />
           <Route exact path="/user/logout" element={<UserLogout />} />
-          <Route exact path="/cart/" element={<Cart />} />
-          <Route exact path="/order" element={<MyOrders />} />
 
-{/* TODO: Pozri sa, ci to nevies urobit elegantnejsie, aby nezobrazovalo warning */}
-          {/* Check if user is authenticated and admin before rendering admin-only routes */}
+          {UserService.isAuthenticated() && (
+            <>
+              <Route exact path="/eshop" element={<Eshop />} />
+              <Route exact path="/user/profile" element={<UserProfile />} />
+              <Route exact path="/cart/" element={<Cart />} />
+              <Route exact path="/order" element={<MyOrders />} />
+            </>
+          )}
+
           {UserService.isAdmin() && (
             <>
               <Route exact path="/item/admin" element={<ItemAdmin />} />

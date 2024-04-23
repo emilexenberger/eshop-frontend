@@ -11,6 +11,11 @@ const EshopItems = ({ eshopItems, handleAddToCart }) => {
     handleAddToCart(itemAddedToCart);
   };
 
+  const formatter = new Intl.NumberFormat('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+
   return (
     <div>
       <h1 className='text-center'>Eshop Items</h1>
@@ -18,11 +23,11 @@ const EshopItems = ({ eshopItems, handleAddToCart }) => {
         <table className="table table-striped table-bordered">
           <thead>
             <tr>
-              <th>Product code</th>
-              <th>Product name</th>
-              <th>Volume</th>
-              <th>Price</th>
-              <th>Actions</th>
+              <th className="align-middle text-center">Product code</th>
+              <th className="align-middle text-center">Product name</th>
+              <th className="align-middle text-center">Volume</th>
+              <th className="align-middle text-center">Price</th>
+              <th className="align-middle text-left ps-4">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -30,11 +35,11 @@ const EshopItems = ({ eshopItems, handleAddToCart }) => {
               eshopItems.map(eshopItem => (
                 eshopItem.volume > 0 &&
                 <tr key={eshopItem.id}>
-                  <td className="align-middle">{eshopItem.productCode}</td>
+                  <td className="align-middle text-center">{eshopItem.productCode}</td>
                   <td className="align-middle">{eshopItem.productName}</td>
-                  <td className="align-middle">{eshopItem.volume}</td>
-                  <td className="align-middle">{eshopItem.price}</td>
-                  <td className="align-middle">
+                  <td className="align-middle text-center">{eshopItem.volume}</td>
+                  <td className="align-middle text-end pe-4">{formatter.format(eshopItem.price)}</td>
+                  <td className="align-middle text-center">
                   <form onSubmit={(e) => handleSubmit(e, eshopItem)} className="d-flex align-items-center">
                     <input 
                       name="volumeSelected" 
