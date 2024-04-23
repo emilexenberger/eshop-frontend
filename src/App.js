@@ -11,6 +11,8 @@ import Footer from './components/common/Footer';
 import UserService from './components/service/UserService';
 import UserManagement from './pages/User/UserManagement';
 import UserUpdate from './pages/User/UserUpdate';
+import UserLogout from './pages/User/UserLogout';
+import Cart from './pages/Cart/Cart';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route exact path="/user/profile" element={<UserProfile />} />
           <Route exact path="/user/login" element={<UserLogin />} />
           <Route exact path="/user/create" element={<UserCreate />} />
+          <Route exact path="/user/logout" element={<UserLogout />} />
+          <Route exact path="/cart/" element={<Cart />} />
           <Route exact path="/order" element={<MyOrders />} />
 
 {/* TODO: Pozri sa, ci to nevies urobit elegantnejsie, aby nezobrazovalo warning */}

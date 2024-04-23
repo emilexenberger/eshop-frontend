@@ -13,7 +13,7 @@ const UserProfile = () => {
       try {
           const token = localStorage.getItem('token');
           const response = await UserService.getYourProfile(token);
-          setProfileInfo(response.ourUsers);
+          setProfileInfo(response.appUser);
       } catch (error) {
           console.error('Error fetching profile information:', error);
       }

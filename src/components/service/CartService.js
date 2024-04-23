@@ -18,21 +18,22 @@ class CartService {
         }
     }
 
-    // static async getCart() {
-    //     try {
-    //         const token = localStorage.getItem('token');
-    //         const response = await fetch(`${CartService.BASE_URL}/cart/`, {
-    //             method: 'GET',
-    //             headers: {
-    //                 'Authorization': `Bearer ${token}`
-    //             }
-    //         });
-    //         const data = await response.json();
-    //         return data;
-    //     } catch (err) {
-    //         throw err;
-    //     }
-    // }
+    static async editCart(editedCartItem) {
+        console.log(`Item changed in cart: POST ${CartService.BASE_URL}/cart/edit`, editedCartItem)
+        try {
+            const token = localStorage.getItem('token');
+            await fetch(`${CartService.BASE_URL}/cart/edit`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(editedCartItem)
+            });
+        } catch (err) {
+            throw err;
+        }
+    }
 
 
 }

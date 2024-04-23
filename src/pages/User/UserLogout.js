@@ -1,9 +1,10 @@
-import React from 'react'
+import UserService from '../../components/service/UserService'
+import { Navigate } from 'react-router-dom';
 
 const UserLogout = () => {
-  return (
-    <div>UserLogout</div>
-  )
+  UserService.logout();
+  Navigate("/")
+  return
 }
 
 export default UserLogout
