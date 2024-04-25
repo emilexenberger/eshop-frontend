@@ -15,9 +15,11 @@ import Cart from './pages/Cart/Cart';
 import CartCheckout from './pages/Cart/CartCheckout';
 import OrderPlaced from './pages/Order/OrderPlaced';
 import OrderDetails from './pages/Order/OrderDetails';
+import { AuthProvider } from './hooks/useAuth';
 
 function App() {
   return (
+    <AuthProvider>
       <BrowserRouter>
         <div className='container my-3'>
         <div>Website - Emil Exenberger</div>
@@ -52,6 +54,7 @@ function App() {
         <Footer />
         </div>
       </BrowserRouter>
+    </AuthProvider>
   );
 }
 
