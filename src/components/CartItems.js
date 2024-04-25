@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const CartItems = ({ cartItems, handleVolumeChange }) => {
   const [volumeSelected, setVolumeSelected] = useState(null);
@@ -8,20 +9,12 @@ const CartItems = ({ cartItems, handleVolumeChange }) => {
     totalPrice += (cartItem.item.price * cartItem.volume)
   })
 
-  const handlePressedVolumeChange = (e, cartItem) => {
+  const handlePressedVolumeChange = (e, cartItem, operation) => {
     e.preventDefault();
     const editedCartItem = {
       itemId: cartItem.item.id,
-      volume: volumeSelected,
-    };
-    handleVolumeChange(editedCartItem);
-  };
-
-  const handlePressedRemoveItem = (e, cartItem) => {
-    e.preventDefault();
-    const editedCartItem = {
-      itemId: cartItem.item.id,
-      volume: 0,
+      volume: operation === 'change' ? volumeSelected : 
+              operation === 'remove' ? 0 : undefined,
     };
     handleVolumeChange(editedCartItem);
   };
@@ -69,11 +62,11 @@ const CartItems = ({ cartItems, handleVolumeChange }) => {
                           className="form-control w-25 me-2" 
                         />
                         
-                        <button onClick={(e) => handlePressedVolumeChange(e, cartItem)} className="btn btn-primary btn-sm me-2">
+                        <button onClick={(e) => handlePressedVolumeChange(e, cartItem, "change")} className="btn btn-primary btn-sm me-2">
                           Change volume
                         </button>
 
-                        <button onClick={(e) => handlePressedRemoveItem(e, cartItem)} className="btn btn-danger btn-sm">
+                        <button onClick={(e) => handlePressedVolumeChange(e, cartItem, "remove")} className="btn btn-danger btn-sm">
                           Remove
                         </button>
                       </div>
@@ -86,7 +79,9 @@ const CartItems = ({ cartItems, handleVolumeChange }) => {
             <tr className="bg-transparent border-0">
               <td colSpan="4" className="text-end align-middle fw-bold border-0">Total Price:</td>
               <td className="align-middle fw-bold text-end pe-4 border-0">{formatter.format(totalPrice)}</td>
-              <td className="border-0"></td>
+              <td className='border-0 green'>
+                <Link to="/checkout" type="button" className="btn btn-success btn-sm mb-1 mx-1">Checkout</Link>
+              </td>
             </tr>
           </tbody>
         </table>

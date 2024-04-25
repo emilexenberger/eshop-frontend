@@ -2,7 +2,7 @@ import Home from './pages/Home/Home';
 import Eshop from './pages/Eshop/Eshop';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import UserLogin from './pages/User/UserLogin';
-import MyOrders from './pages/Order/MyOrders';
+import OrderShowAll from './pages/Order/OrderShowAll';
 import ItemAdmin from './pages/AdminDatabase/ItemAdmin';
 import UserCreate from './pages/User/UserCreate';
 import UserProfile from './pages/User/UserProfile';
@@ -13,6 +13,8 @@ import UserManagement from './pages/User/UserManagement';
 import UserUpdate from './pages/User/UserUpdate';
 import UserLogout from './pages/User/UserLogout';
 import Cart from './pages/Cart/Cart';
+import CartCheckout from './pages/Cart/CartCheckout';
+import OrderPlace from './pages/Order/OrderPlace';
 
 function App() {
   return (
@@ -31,8 +33,10 @@ function App() {
             <>
               <Route exact path="/eshop" element={<Eshop />} />
               <Route exact path="/user/profile" element={<UserProfile />} />
-              <Route exact path="/cart/" element={<Cart />} />
-              <Route exact path="/order" element={<MyOrders />} />
+              <Route exact path="/cart" element={<Cart />} />
+              <Route exact path="/checkout" element={<CartCheckout />} />
+              <Route exact path="/order" element={<OrderShowAll />} />
+              <Route exact path="/order/place" element={<OrderPlace />} />
             </>
           )}
 
