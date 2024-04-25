@@ -53,7 +53,7 @@ const CheckoutItems = ({ cartItems }) => {
               <tr className="bg-transparent border-0">
                 <td colSpan="3" className="text-end align-middle fw-bold border-0">Total Price:</td>
                 <td className="align-middle fw-bold text-end pe-4 border-0">{formatter.format(totalPrice)}</td>
-                <td className='border-0 green'>
+                <td className='border-0'>
                   <button onClick={handlePressedPlaceOrder} className="btn btn-success btn-sm">
                     Place Order
                   </button>

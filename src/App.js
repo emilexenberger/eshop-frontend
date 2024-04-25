@@ -11,10 +11,10 @@ import Footer from './components/common/Footer';
 import UserService from './components/service/UserService';
 import UserManagement from './pages/User/UserManagement';
 import UserUpdate from './pages/User/UserUpdate';
-import UserLogout from './pages/User/UserLogout';
 import Cart from './pages/Cart/Cart';
 import CartCheckout from './pages/Cart/CartCheckout';
 import OrderPlaced from './pages/Order/OrderPlaced';
+import OrderDetails from './pages/Order/OrderDetails';
 
 function App() {
   return (
@@ -27,7 +27,6 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/user/login" element={<UserLogin />} />
           <Route exact path="/user/create" element={<UserCreate />} />
-          <Route exact path="/user/logout" element={<UserLogout />} />
 
           {UserService.isAuthenticated() && (
             <>
@@ -36,7 +35,8 @@ function App() {
               <Route exact path="/cart" element={<Cart />} />
               <Route exact path="/cart/checkout" element={<CartCheckout />} />
               <Route exact path="/order/placed" element={<OrderPlaced />} />
-              <Route exact path="/order/showAll" element={<OrderShowAll />} />
+              <Route exact path="/order/all" element={<OrderShowAll />} />
+              <Route exact path="/order/:orderId" element={<OrderDetails />} />
             </>
           )}
 

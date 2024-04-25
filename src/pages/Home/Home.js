@@ -12,7 +12,7 @@ const Home = () => {
     if (isAuthenticated) {
       fetchProfileInfo();
     }
-  }, [isAuthenticated, profileInfo]);
+  }, [isAuthenticated]);
 
   const fetchProfileInfo = async () => {
       try {
