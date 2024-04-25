@@ -27,7 +27,7 @@ const CartItems = ({ cartItems, handleVolumeChange }) => {
   return (
     <div>
       <h1 className='text-center'>Cart</h1>
-      <div className='row'>
+      <div className=''>
         <table className="table">
           <thead>
             <tr>
@@ -80,7 +80,7 @@ const CartItems = ({ cartItems, handleVolumeChange }) => {
               <td colSpan="4" className="text-end align-middle fw-bold border-0">Total Price:</td>
               <td className="align-middle fw-bold text-end pe-4 border-0">{formatter.format(totalPrice)}</td>
               <td className='border-0 green'>
-                <Link to="/checkout" type="button" className="btn btn-success btn-sm mb-1 mx-1">Checkout</Link>
+                <Link to="/cart/checkout" type="button" className="btn btn-success btn-sm mb-1 mx-1">Checkout</Link>
               </td>
             </tr>
           </tbody>

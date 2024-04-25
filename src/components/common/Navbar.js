@@ -20,7 +20,7 @@ function Navbar() {
         <nav>
             <Link to="/" type="button" className="btn btn-primary btn-sm mb-1 mx-1">Home</Link>
             {isAuthenticated && <Link to="/eshop" type="button" className="btn btn-primary btn-sm mb-1 mx-1">Eshop</Link>}
-            {isAuthenticated && <Link to="/order" type="button" className="btn btn-primary btn-sm mb-1 mx-1">My orders</Link>}
+            {isAuthenticated && <Link to="/order/showAll" type="button" className="btn btn-primary btn-sm mb-1 mx-1">My orders</Link>}
             {isAdmin && <Link to="/user/management" type="button" className="btn btn-primary btn-sm mb-1 mx-1">User Management</Link>}
             {isAuthenticated && <Link to="/user/profile" type="button" className="btn btn-primary btn-sm mb-1 mx-1">Profile</Link>}
             {isAuthenticated && <Link to="/cart" type="button" className="btn btn-primary btn-sm mb-1 mx-1">Cart</Link>}

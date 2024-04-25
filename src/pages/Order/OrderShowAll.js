@@ -2,7 +2,7 @@ import React from 'react'
 
 const OrderShowAll = () => {
   return (
-    <div>MyOrders</div>
+    <div>Show all orders here</div>
   )
 }
 
