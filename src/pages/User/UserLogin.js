@@ -2,14 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import UserService from '../../components/service/UserService';
-import { useAuth } from '../../hooks/useAuth';
 
 const UserLogin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('')
     const navigate = useNavigate();
-    const { contextLogin } = useAuth();
 
     useEffect(() => {
         document.title = "Login"
@@ -23,7 +21,6 @@ const UserLogin = () => {
             if (userData.token) {
                 localStorage.setItem('token', userData.token)
                 localStorage.setItem('role', userData.role)
-                contextLogin();
                 navigate('/')
             }else{
                 setError(userData.message)

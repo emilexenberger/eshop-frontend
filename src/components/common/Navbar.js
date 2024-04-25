@@ -1,18 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import UserService from '../service/UserService';
-import { useAuth } from '../../hooks/useAuth';
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+    const isAuthenticated = UserService.isAuthenticated();
     const isAdmin = UserService.isAdmin();
-    const { isAuthenticated, contextLogout } = useAuth();
+    const navigate = useNavigate();
 
     const handleLogout = () => {
-        const confirmLogout = window.confirm('Are you sure you want to logout?');
+        const confirmLogout = window.confirm('Are you sure you want to logout this user?');
         if (confirmLogout) {
             UserService.logout();
-            contextLogout();
         }
+        navigate("/user/logged-out");
     };
 
     return (
