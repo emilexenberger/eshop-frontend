@@ -107,6 +107,23 @@ class UserService {
         }
     }
 
+    static async isUsernameAvailable(username) {
+        try {
+            console.log(`Check if the username is available: POST ${UserService.BASE_URL}/user/is-username-available`, { username: username })
+            const response = await fetch(`${UserService.BASE_URL}/user/is-username-available`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username: username })
+            });
+            const data = await response.json();
+            return data.isUsernameAvailable;
+        } catch (err) {
+            throw err;
+        }
+    }
+
     /** AUTHENTICATION CHECKER */
     static logout() {
         localStorage.removeItem('token');

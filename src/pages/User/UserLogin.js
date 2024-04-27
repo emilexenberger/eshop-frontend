@@ -25,7 +25,7 @@ const UserLogin = () => {
         login();
         navigate('/');
       } else {
-        setError(userData.message);
+        setError("Wrong username or password");
       }
     } catch (error) {
       console.log(error);
@@ -39,7 +39,7 @@ const UserLogin = () => {
   return (
     <div className='col-md-3'>
       <h1>Log in</h1>
-      {error && <p className="error-message">{error}</p>}
+      {error && <p className="text-danger">{error}</p>}
 
       <form onSubmit={handleSubmit}>
         <label>User Name:</label>
