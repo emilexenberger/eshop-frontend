@@ -39,7 +39,7 @@ const Home = () => {
       {/* Buttons */}
       {isAuthenticated ? (
         <div>
-          {isAdmin && <Link to="/item/admin" type="button" className="btn btn-primary btn-sm mb-1 mx-1">Admin - Edit database</Link>}
+          {isAdmin && <Link to="/item/management" type="button" className="btn btn-primary btn-sm mb-1 mx-1">Admin - Edit database</Link>}
         </div>
       ) : (
         <div>

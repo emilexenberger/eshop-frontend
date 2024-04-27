@@ -3,7 +3,6 @@ import Eshop from './pages/Eshop/Eshop';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import UserLogin from './pages/User/UserLogin';
 import OrderShowAll from './pages/Order/OrderShowAll';
-import ItemAdmin from './pages/AdminDatabase/ItemAdmin';
 import UserCreate from './pages/User/UserCreate';
 import UserProfile from './pages/User/UserProfile';
 import Navbar from './components/common/Navbar';
@@ -17,6 +16,8 @@ import OrderPlaced from './pages/Order/OrderPlaced';
 import OrderDetails from './pages/Order/OrderDetails';
 import { AuthProvider } from './hooks/useContext/AuthContext';
 import NotFound from './pages/NotFound/NotFound';
+import ItemManagement from './pages/Item/ItemManagement';
+import ItemCreate from './pages/Item/ItemCreate';
 
 function App() {
   return (
@@ -45,7 +46,8 @@ function App() {
 
           {UserService.isAdmin() && (
             <>
-              <Route exact path="/item/admin" element={<ItemAdmin />} />
+              <Route exact path="/item/management" element={<ItemManagement />} />
+              <Route exact path="/item/create" element={<ItemCreate />} />
               <Route exact path="/user/management" element={<UserManagement />} />
               <Route exact path="/user/update/:userId" element={<UserUpdate />} />
             </>
