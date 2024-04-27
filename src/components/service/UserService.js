@@ -63,7 +63,7 @@ class UserService {
 
     static async getUserById(userId, token) {
         try {
-            const response = await fetch(`${UserService.BASE_URL}/admin/get-users/${userId}`, {
+            const response = await fetch(`${UserService.BASE_URL}/admin/user/${userId}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }

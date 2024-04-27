@@ -18,6 +18,7 @@ import { AuthProvider } from './hooks/useContext/AuthContext';
 import NotFound from './pages/NotFound/NotFound';
 import ItemManagement from './pages/Item/ItemManagement';
 import ItemCreate from './pages/Item/ItemCreate';
+import ItemUpdate from './pages/Item/ItemUpdate';
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
               <Route exact path="/item/create" element={<ItemCreate />} />
               <Route exact path="/user/management" element={<UserManagement />} />
               <Route exact path="/user/update/:userId" element={<UserUpdate />} />
+              <Route exact path="/item/update/:itemId" element={<ItemUpdate />} />
             </>
           )}
           <Route path="*" element={<NotFound />} />

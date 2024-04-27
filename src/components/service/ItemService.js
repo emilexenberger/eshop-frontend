@@ -35,6 +35,20 @@ class ItemService {
         }
     }
 
+    static async getItemById(itemId) {
+        try {
+            const token = localStorage.getItem('token');
+            const response = await fetch(`${ItemService.BASE_URL}/item/details/${itemId}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            const data = await response.json();
+            return data;
+        } catch (err) {
+            throw err;
+        }
+    }
 
 }
 
