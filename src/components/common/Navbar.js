@@ -1,19 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import UserService from '../service/UserService';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import UserService from '../service/UserService'; // Pre zistenie administrátorských práv
+import { useAuthContext } from '../../hooks/useContext/AuthContext';
 
-function Navbar() {
-    const isAuthenticated = UserService.isAuthenticated();
-    const isAdmin = UserService.isAdmin();
+const Navbar = () => {
+    const { isAuthenticated, logout } = useAuthContext(); // Získajte hodnoty a funkcie z kontextu
+    const isAdmin = UserService.isAdmin(); // Získajte informáciu, či je používateľ administrátor
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        const confirmLogout = window.confirm('Are you sure you want to logout this user?');
+        const confirmLogout = window.confirm('Are you sure you want to logout?');
         if (confirmLogout) {
             UserService.logout();
+            logout(); // Kontekstové odhlásenie, ktoré aktualizuje stav autentifikácie
+            navigate("/user/logged-out"); // Presmerovanie po odhlásení
         }
-        navigate("/user/logged-out");
     };
 
     return (
@@ -27,6 +29,6 @@ function Navbar() {
             {isAuthenticated && <Link to="/" onClick={handleLogout} type="button" className="btn btn-primary btn-sm mb-1 mx-1">Logout</Link>}
         </nav>
     );
-}
+};
 
 export default Navbar;

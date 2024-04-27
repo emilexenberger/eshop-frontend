@@ -15,9 +15,12 @@ import Cart from './pages/Cart/Cart';
 import CartCheckout from './pages/Cart/CartCheckout';
 import OrderPlaced from './pages/Order/OrderPlaced';
 import OrderDetails from './pages/Order/OrderDetails';
+import { AuthProvider } from './hooks/useContext/AuthContext';
+import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   return (
+    <AuthProvider>
       <BrowserRouter>
         <div className='container my-3'>
         <div>Website - Emil Exenberger</div>
@@ -47,11 +50,13 @@ function App() {
               <Route exact path="/user/update/:userId" element={<UserUpdate />} />
             </>
           )}
+          <Route path="*" element={<NotFound />} />
         </Routes>
 
         <Footer />
         </div>
       </BrowserRouter>
+    </AuthProvider>
   );
 }
 

@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
 import UserService from '../../components/service/UserService';
 import { useEffect, useState } from 'react';
+import { useAuthContext } from '../../hooks/useContext/AuthContext';
 
 const Home = () => {
-  const isAuthenticated = UserService.isAuthenticated();
+  const { isAuthenticated } = useAuthContext();
   const isAdmin = UserService.isAdmin();
   const [profileInfo, setProfileInfo] = useState({});
 
   useEffect(() => {    
-    // TODO: Vyries, preco sa to tu zacykluje pri prihlaseni
     if (isAuthenticated) {
       fetchProfileInfo();
     }
