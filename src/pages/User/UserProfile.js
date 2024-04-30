@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import UserService from '../../components/service/UserService';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const UserProfile = () => {
   const [profileInfo, setProfileInfo] = useState({});
+  const location = useLocation();
 
   useEffect(() => {
       fetchProfileInfo();
@@ -42,7 +43,7 @@ const UserProfile = () => {
                     </tbody>
                 </table>
 
-                {profileInfo.role === "ADMIN" && (
+                {location.pathname === "/user/profile" && profileInfo.role === "ADMIN" && (
                     <Link to={`/user/update/${profileInfo.id}`} type="button" className="btn btn-primary btn-sm mb-1 mx-1">Update This Profile</Link>
                 )}
             </div>
