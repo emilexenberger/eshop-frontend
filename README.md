@@ -33,18 +33,18 @@ This is the frontend component of an e-shop application, developed using React. 
 To run this project locally, follow these steps:
 
 1. **Clone the repository**:
-   ```shell
+   ```
    git clone https://github.com/emilexenberger/eshop-frontend.git
    ```
 
 2. **Install dependencies**:
-   ```shell
+   ```
    cd eshop-frontend
    npm install
    ```
 
 3. **Run the application**:
-   ```shell
+   ```
    npm start
    ```
    This will start the frontend application on `localhost:3000`.
