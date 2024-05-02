@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# E-shop Frontend Project
+*Ing. Emil Exenberger, PhD., MBA*
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+This is the frontend component of an e-shop application, developed using React. It communicates with the backend component to provide a complete e-commerce experience, including product browsing, user authentication, cart management, and order processing. The backend repository can be found [here](https://github.com/emilexenberger/eshop-backend).
 
-## Available Scripts
+## Technologies Used
 
-In the project directory, you can run:
+### Frameworks and Libraries
+- **React**
+- **Bootstrap** (Styling and layout)
+- **Lodash** (Utility functions, such as `orderBy`)
 
-### `npm start`
+### Additional Skills
+- **State Management** (React hooks: `useState`, `useEffect`, `useContext`)
+- **Routing and Navigation** (React Router with `Route`, `Routes`)
+- **HTTP Requests** (`fetch`, `async/await`)
+- **Data Formatting** (`Intl.NumberFormat`)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Component-based Development
+- Modular components for the user interface.
+- Integration with backend via RESTful APIs.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Authentication and Authorization
+- JWT-based authentication with React Context and `useAuthContext`.
+- Conditional rendering based on authentication status and user roles.
 
-### `npm test`
+### UI and UX
+- **Navbars and Footers** (Reusable components for navigation and layout)
+- **Forms and Validation** (Custom form handling and validation logic)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation and Running the Project
+To run this project locally, follow these steps:
 
-### `npm run build`
+1. **Clone the repository**:
+   ```shell
+   git clone https://github.com/emilexenberger/eshop-frontend.git
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Install dependencies**:
+   ```shell
+   cd eshop-frontend
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Run the application**:
+   ```shell
+   npm start
+   ```
+   This will start the frontend application on `localhost:3000`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contributions
+This project serves as a showcase of my frontend development skills. Although this repository is public, I kindly ask that you do not submit pull requests or make changes. The purpose of this repository is to demonstrate my capabilities, and any changes might affect its integrity. Thank you for understanding.

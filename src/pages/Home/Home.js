@@ -40,7 +40,7 @@ const Home = () => {
       {isAuthenticated ? (
         <div>
           {isAdmin && <Link to="/item/management" type="button" className="btn btn-primary btn-sm mb-1 mx-1">Item management</Link>}
-          {isAdmin && <Link to="/user/management" type="button" className="btn btn-primary btn-sm mb-1 mx-1">User Management</Link>}
+          {isAdmin && <Link to="/user/management" type="button" className="btn btn-primary btn-sm mb-1 mx-1">User management</Link>}
         </div>
       ) : (
         <div>
