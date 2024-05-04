@@ -12,9 +12,9 @@ function UserManagement() {
 
   const fetchUsers = async () => {
     try {
-        const token = localStorage.getItem('token'); // Retrieve the token from localStorage
+        const token = localStorage.getItem('token');
         const response = await UserService.getAllUsers(token);
-        setUsers(response.appUserList); // Assuming the list of users is under the key 'ourUsersList'
+        setUsers(response.appUserList);
     } catch (error) {
         console.error('Error fetching users:', error);
     }
@@ -23,13 +23,11 @@ function UserManagement() {
 
   const deleteUser = async (userId) => {
     try {
-      // Prompt for confirmation before deleting the user
       const confirmDelete = window.confirm('Are you sure you want to delete this user?');
 
-      const token = localStorage.getItem('token'); // Retrieve the token from localStorage
+      const token = localStorage.getItem('token');
       if (confirmDelete) {
         await UserService.deleteUser(userId, token);
-        // After deleting the user, fetch the updated list of users
         fetchUsers();
       }
     } catch (error) {

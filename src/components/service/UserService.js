@@ -83,8 +83,7 @@ class UserService {
                     'Authorization': `Bearer ${token}`
                 }
             });
-            const data = await response.json();
-            return data;
+            return response;
         } catch (err) {
             throw err;
         }

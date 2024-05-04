@@ -11,10 +11,18 @@ const CartItems = ({ cartItems, handleVolumeChange }) => {
 
   const handlePressedVolumeChange = (e, cartItem, operation) => {
     e.preventDefault();
+
+    let volume;
+
+    if (operation === 'change') {
+        volume = volumeSelected == null ? cartItem.volume : volumeSelected;
+    } else if (operation === 'remove') {
+        volume = 0;
+    }
+    
     const editedCartItem = {
-      itemId: cartItem.item.id,
-      volume: operation === 'change' ? volumeSelected : 
-              operation === 'remove' ? 0 : undefined,
+        itemId: cartItem.item.id,
+        volume: volume,
     };
     handleVolumeChange(editedCartItem);
   };
