@@ -3,7 +3,8 @@ import CartService from '../../components/service/CartService';
 import useFetch from '../../hooks/useFetch';
 
 const Cart = () => {
-  const {data: cartItems, isPending, error, refetch} = useFetch('http://localhost:8080/cart/');
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+  const {data: cartItems, isPending, error, refetch} = useFetch(BASE_URL + '/cart/');
 
   const isCartEmpty = cartItems && cartItems.length === 0;
 

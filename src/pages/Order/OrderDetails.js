@@ -5,8 +5,9 @@ import useFetch from '../../hooks/useFetch';
 const OrderDetails = () => {
   const { orderId } = useParams();
 
-  const {data: orderItems, isPending: dataItemsisPending} = useFetch('http://localhost:8080/order/items/' + orderId);
-  const {data: order, isPending: orderIsPending} = useFetch('http://localhost:8080/order/details/' + orderId);
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+  const {data: orderItems, isPending: dataItemsisPending} = useFetch(BASE_URL + '/order/items/' + orderId);
+  const {data: order, isPending: orderIsPending} = useFetch(BASE_URL + '/order/details/' + orderId);
 
   const formatter = new Intl.NumberFormat('en-US', {
     minimumFractionDigits: 2,
