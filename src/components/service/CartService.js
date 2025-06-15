@@ -1,5 +1,5 @@
 class CartService {
-    static BASE_URL = "http://localhost:8080";
+    static BASE_URL = process.env.REACT_APP_BASE_URL;
 
     static async addToCart(itemAddedToCart) {
         console.log(`Item added to cart: POST ${CartService.BASE_URL}/cart/add`, itemAddedToCart)

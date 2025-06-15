@@ -1,5 +1,5 @@
 class UserService {
-    static BASE_URL = "http://localhost:8080";
+    static BASE_URL = process.env.REACT_APP_BASE_URL;
 
     static async login(username, password) {
         try {

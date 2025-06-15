@@ -1,5 +1,5 @@
 class ItemService {
-    static BASE_URL = "http://localhost:8080";
+    static BASE_URL = process.env.REACT_APP_BASE_URL;
 
     static async saveItem(savedItem) {
         console.log(`Item saved: POST ${ItemService.BASE_URL}/item/save`, savedItem)
