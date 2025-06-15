@@ -3,7 +3,8 @@ import CartService from '../../components/service/CartService';
 import useFetch from '../../hooks/useFetch';
 
 const Eshop = () => {
-  const {data: eshopItems, isPending, error, refetch} = useFetch('http://localhost:8080/eshop/items');
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+  const {data: eshopItems, isPending, error, refetch} = useFetch(BASE_URL + '/eshop/items');
 
   const handleAddToCart = async (itemAddedToCart) => {
     try {

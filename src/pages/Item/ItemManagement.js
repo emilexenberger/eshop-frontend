@@ -3,7 +3,8 @@ import ItemService from '../../components/service/ItemService';
 import useFetch from '../../hooks/useFetch';
 
 const ItemManagement = () => {
-  const {data: eshopItems, isPending, error, refetch} = useFetch('http://localhost:8080/eshop/items');
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+  const {data: eshopItems, isPending, error, refetch} = useFetch(BASE_URL + '/eshop/items');
 
   const deleteItem = async (deletedItemId) => {
     try {

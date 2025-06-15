@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import UserService from '../../components/service/UserService';
 import { Link, useLocation } from 'react-router-dom';
+import { useAuthContext } from '../../hooks/useContext/AuthContext';
 
 const UserProfile = () => {
   const [profileInfo, setProfileInfo] = useState({});
-  const location = useLocation();
+  const location = useLocation();  
+  
+  const { isAuthenticated } = useAuthContext();
+  const isAdmin = UserService.isAdmin();
 
   useEffect(() => {
       fetchProfileInfo();
@@ -39,6 +43,18 @@ const UserProfile = () => {
                     <tr>
                         <td className="text-right"><b>Surname:</b></td>
                         <td className="text-left" >{profileInfo.surname}</td>
+                    </tr>
+                    <tr>
+                        <td className="text-right"><b>User role:</b></td>
+                        <td className="text-left" >{profileInfo.role}</td>
+                    </tr>
+                    <tr>
+                        <td className="text-right"><b>Is Authenticated:</b></td>
+                        <td className="text-left">{isAuthenticated ? 'Yes' : 'No'}</td>
+                    </tr>
+                    <tr>
+                        <td className="text-right"><b>Is Admin:</b></td>
+                        <td className="text-left">{isAdmin ? 'Yes' : 'No'}</td>
                     </tr>
                     </tbody>
                 </table>

@@ -3,7 +3,8 @@ import useFetch from '../../hooks/useFetch';
 import UserProfile from '../User/UserProfile';
 
 const CartCheckout = () => {
-  const {data: cartItems, isPending, error} = useFetch('http://localhost:8080/cart/');
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+  const {data: cartItems, isPending, error} = useFetch(BASE_URL + '/cart/');
 
   return (
     <div className='Cart'>
