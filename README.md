@@ -1,6 +1,9 @@
 # E-shop Frontend Project
 *Ing. Emil Exenberger, PhD., MBA*
 
+## Deployment
+This project is deployed and accessible at: **[https://project-eshop.webemex.sk](https://project-eshop.webemex.sk)**
+
 ## Overview
 This is the frontend component of an e-shop application, developed using React. It communicates with the backend component to provide a complete e-commerce experience, including product browsing, user authentication, cart management, and order processing. The backend repository can be found [here](https://github.com/emilexenberger/eshop-backend).
 
